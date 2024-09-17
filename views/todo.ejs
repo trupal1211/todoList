@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../app.js"></script>
+
+    <style>
+        * {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        h1 {
+            margin-bottom: 0px;
+            font-size: 30px;
+        }
+
+        p {
+            margin-top: 10px;
+        }
+
+        .container {
+            width: 400px;
+            margin: 20px auto 10px;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px 10px;
+            font-size: 16px;
+            border: 1.5px solid gray;
+            border-radius: 4px;
+
+        }
+
+        .btn {
+            margin-top: 4px;
+            padding: 12px 26px;
+            background-color: #292929;
+            font-weight: 600;
+            color: white;
+            font-size: 16px;
+            border: 0;
+            border-radius: 4px;
+        }
+
+        .btn:active {
+            transform: scale(1.02);
+        }
+
+        .task {
+            border: 1px solid rgb(152, 152, 152);
+            padding: 8px 20px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btnx {
+            margin-top: 15px;
+            padding: 8px 18px;
+            font-size: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            background-color: white;
+            border: 2px solid rgb(189, 1, 1);
+            color: rgb(189, 1, 1);
+            border-radius: 4px;
+            transition: 1s;
+        }
+
+        .btnx:hover {
+            border: 2px solid rgb(189, 1, 1);
+            background-color: rgb(189, 1, 1);
+            color: white;
+        }
+
+        .api-btn {
+            margin-top: 15px;
+            padding: 8px 22px;
+            font-size: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            /* border: 2px solid #3b4aee;
+            background-color: #3b4aee; */
+            background-color: #292929;
+            border: 2px solid #292929;
+            color: white;
+            border-radius: 4px;
+            transition: 1s;
+        }
+
+        .api-btn:hover {
+            transform: scale(1.02);            
+        }
+
+        .gap {
+            gap: 18px;
+        }
+
+        nav {
+            width: 90%;
+            margin: auto;
+        }
+
+        .logo {
+            color: rgb(73, 73, 73);
+            font-size: 30px;
+            font-weight: bolder;
+            margin-left: 10px;
+        }
+
+        input {
+            margin-bottom: 12px;
+        }
+
+        .mt0 {
+            margin-top: 10px;
+        }
+
+        .show {
+            width: 400px;
+            margin: 30px auto 10px;
+        }
+
+        p {
+            margin-bottom: 22px;
+        }
+        
+        h1{
+            font-size: 28px;
+        }
+         
+        span{
+            color: gray;
+        }
+
+        .fixlogo{
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 10px;
+            padding-bottom: 8px;
+            background-color: #292929;
+            border-radius: 4px; 
+            border: 2px solid #292929;   
+            box-sizing: border-box;        
+        }
+
+        .stylelogo{
+            fill: white;
+        }
+
+        .fixlogo:hover{
+            background-color: white;
+        }
+
+        .fixlogo:hover .stylelogo{
+            fill: #292929;
+        }
+
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <nav class="flex">
+        <div class="logo">TodoList</div>
+
+        <div class="flex gap">
+
+            <form action="/api-access">
+                <button class="api-btn" type="submit">get API</button>
+            </form>
+
+            <form action="/do-logout">
+                <button class="btnx" type="submit">log out</button>
+            </form>
+
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+        <h1>Manage your Task <span>@<%= name %></span></h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum iure iste illo?</p>
+
+        <form action="/add-task" method="post">
+            <input type="text" name="todo" placeholder="enter todo here">
+            <button class="btn" type="submit">Create Todo</button>
+        </form>
+
+    </div>
+
+    <div class="show">
+
+        <% for(let x of todos){ %>
+            <div class="task flex">
+                 <div> <%= x.title %> </div>
+                 <form action="/delete-todo/<%= x._id %>" method="post">
+                    <button type="submit" style="cursor: pointer; width: 5%; background-color: transparent; border: 0; color: rgb(125, 125, 125);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                        <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                      </svg>
+                   </button>
+                </form>
+            </div>
+            
+            <% } %> 
+
+    </div>
+
+    <a href="/publicAcc">
+    <div class="fixlogo">
+        
+            <svg xmlns="http://www.w3.org/2000/svg"class="stylelogo" width="30" height="30" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+              </svg>
+        
+    </div>
+</a>
+
+</body>
+
+</html>

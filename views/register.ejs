@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+
+        *{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        h1{
+            margin-bottom: 0px;
+            font-size: 30px;
+        }
+
+        p{
+            margin-top: 10px;
+        }
+
+        .container{
+            width: 370px;
+            margin: 50px auto 10px;
+        }
+
+        input{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px 10px;
+            font-size: 16px;
+            border: 1.5px solid gray;
+            border-radius: 4px;
+            
+            }
+
+        .btn{
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px 26px;
+            background-color: #292929;
+            font-weight: 600;
+            color: white;
+            font-size: 16px;
+            border: 0;
+            border-radius: 4px;
+        }
+
+        .btn:active{
+            transform: scale(1.001);
+        }
+
+        .task{
+            border: 1px solid rgb(152, 152, 152);
+            padding: 8px 20px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .flex{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .btnx{
+            margin-top: 15px;
+            padding: 8px 18px;
+            font-size: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            background-color:#292929 ;
+            border: 2px solid #292929 ;
+            color: white;
+            border-radius: 4px;
+            transition: 1s;
+        }
+
+        .btnx:hover{
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+        }
+
+        .gap{
+            gap: 18px;
+        }
+
+        nav{
+            width: 90%;
+            margin: auto;
+        }
+
+        .logo{
+            color: rgb(73, 73, 73);
+            font-size: 30px;
+            font-weight: bolder;
+            margin-left: 10px;
+        }
+
+        input{
+            margin-bottom: 12px;
+        }
+
+        p{
+            margin-bottom: 22px;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <nav class="flex">
+        <div class="logo">TodoList</div>
+
+        <div class="flex gap">
+            <form action="/">
+                <button class="btnx" type="submit">Home</button>
+            </form>
+
+            <form action="/login">
+                <button class="btnx" type="submit">log in</button>
+            </form>
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+        <h1>Ragister to Manage Task! </h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. vero ipsam explicabo minus nobis?</p>
+        
+        <form action="/add-user" method="post">
+
+            <input type="text" name="name" placeholder="name">
+            <input type="email" name="email" placeholder="email">
+            <input type="text" name="password" placeholder="password">
+
+            <button class="btn" type="submit">Register</button>
+        </form>
+
+    </div>
+
+</body>
+
+</html>
